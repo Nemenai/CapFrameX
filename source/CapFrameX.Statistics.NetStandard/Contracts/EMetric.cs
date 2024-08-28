@@ -19,60 +19,66 @@ namespace CapFrameX.Statistics.NetStandard.Contracts
 		Average = 4,
         [Description("GPU Active Average")]
         [ShortDescription("GPU Avg")]
-        GpuActiveAverage = 5,
+        GpuActiveAverage = 5, 
+		[Description("Integral Average")]
+        [ShortDescription("Integral")]
+        Integral = 6,
+        [Description("GPU Active Integral Average")]
+        [ShortDescription("GPU Integral")]
+        GpuActiveIntegral = 7,
         [Description("Median")]
 		[ShortDescription("Med")]
-		Median = 6,
+		Median = 8,
 		[Description("5% percentile")]
 		[ShortDescription("P5")]
-		P5 = 7,
+		P5 = 9,
 		[Description("1% percentile")]
 		[ShortDescription("P1")]
-		P1 = 8,
+		P1 = 10,
         [Description("GPU Active 1% percentile")]
         [ShortDescription("GPU P1")]
-        GpuActiveP1 = 9,
+        GpuActiveP1 = 11,
         [Description("0.2% percentile")]
 		[ShortDescription("P0.2")]
-		P0dot2 = 10,
+		P0dot2 = 12,
 		[Description("0.1% percentile")]
 		[ShortDescription("P0.1")]
-		P0dot1 = 11,
+		P0dot1 = 13,
 		[Description("1% low average")]
 		[ShortDescription("1% Low Avg")]
-		OnePercentLowAverage = 12,
+		OnePercentLowAverage = 14,
         [Description("GPU Active 1% low average")]
         [ShortDescription("GPU 1% Low Avg")]
-        GpuActiveOnePercentLowAverage = 13,
+        GpuActiveOnePercentLowAverage = 15,
         [Description("0.2% low average")]
 		[ShortDescription("0.2% Low Avg")]
-		ZerodotTwoPercentLowAverage = 14,
+		ZerodotTwoPercentLowAverage = 16,
 		[Description("0.1% low average")]
 		[ShortDescription("0.1% Low Avg")]
-		ZerodotOnePercentLowAverage = 15,
+		ZerodotOnePercentLowAverage = 17,
         [Description("1% low integral")]
         [ShortDescription("1% Low Int")]
-        OnePercentLowIntegral = 16,
+        OnePercentLowIntegral = 18,
 		[Description("0.2% low integral")]
 		[ShortDescription("0.2% Low Int")]
-		ZerodotTwoPercentLowIntegral = 17,
+		ZerodotTwoPercentLowIntegral = 19,
 		[Description("0.1% low integral")]
         [ShortDescription("0.1% Low Int")]
-        ZerodotOnePercentLowIntegral = 18,
+        ZerodotOnePercentLowIntegral = 20,
         [Description("Minimum")]
 		[ShortDescription("Min")]
-		Min = 19,
+		Min = 21,
 		[Description("Adaptive STDEV")]
 		[ShortDescription("Adp STDEV")]
-		AdaptiveStd = 20,
+		AdaptiveStd = 22,
 		[Description("CPU FPS per 10 Watts")]
 		[ShortDescription("CPU FPS/10W")]
-		CpuFpsPerWatt = 21,
+		CpuFpsPerWatt = 23,
         [Description("GPU FPS per 10 Watts")]
         [ShortDescription("GPU FPS/10W")]
-        GpuFpsPerWatt = 22,
+        GpuFpsPerWatt = 24,
         [Description("None")]
 		[ShortDescription("None")]
-		None = 23,
+		None = 25,
 	}
 }

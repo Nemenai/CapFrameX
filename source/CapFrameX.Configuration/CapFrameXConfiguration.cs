@@ -298,19 +298,24 @@ namespace CapFrameX.Configuration
 
         public bool UseSingleRecord99QuantileStatisticParameter
         {
-            get => Get<bool>(false);
+            get => Get<bool>(true);
             set => Set(value);
         }
 
         public bool UseSingleRecordP95QuantileStatisticParameter
         {
-            get => Get<bool>(true);
+            get => Get<bool>(false);
             set => Set(value);
         }
 
         public bool UseSingleRecordAverageStatisticParameter
         {
             get => Get<bool>(true);
+            set => Set(value);
+        }
+        public bool UseSingleRecordIntegralStatisticParameter
+        {
+            get => Get<bool>(false);
             set => Set(value);
         }
 

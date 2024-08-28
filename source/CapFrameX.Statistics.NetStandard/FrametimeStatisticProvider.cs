@@ -204,6 +204,10 @@ namespace CapFrameX.Statistics.NetStandard
                 case EMetric.GpuActiveAverage:
                     metricValue = sequence.Count * 1000 / sequence.Sum();
                     break;
+                case EMetric.Integral:
+                case EMetric.GpuActiveIntegral:
+                    metricValue = sequence.Sum() * 1000 / sequence.Select(x => x * x).Sum();
+                    break;
                 case EMetric.Median:
                     metricValue = GetPQuantileSequence(fps, 0.5);
                     break;
@@ -273,6 +277,10 @@ namespace CapFrameX.Statistics.NetStandard
                 case EMetric.Average:
                 case EMetric.GpuActiveAverage:
                     metricValue = sequence.Sum() / sequence.Count;
+                    break;
+                case EMetric.Integral:
+                case EMetric.GpuActiveIntegral:
+                    metricValue = sequence.Select(x => x * x).Sum() / sequence.Sum();
                     break;
                 case EMetric.Median:
                     metricValue = GetPQuantileSequence(sequence, 0.5);

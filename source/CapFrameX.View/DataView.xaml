@@ -661,6 +661,8 @@
                                            &#xA;The single highest value &#xA;
                                            &#xA;Average:
                                            &#xA;The average of all values &#xA;
+                                           &#xA;Integral:
+                                           &#xA;The integral average of all values &#xA;
                                            &#xA;Median:
                                            &#xA;The middle of all values sorted from low to high &#xA;
                                            &#xA;Minimum:
@@ -727,8 +729,10 @@
                                 <ToggleButton Margin="5" Grid.Row="7" Grid.Column="1" IsChecked="{Binding UseP1QuantileStatisticParameter}" Style="{StaticResource MaterialDesignSwitchToggleButton}"/>
                                 <TextBlock Margin="5" Grid.Row="8" Grid.Column="0" Text="GPU-Busy 99% percentile(only ms)" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="8" Grid.Column="1" IsChecked="{Binding UseGpuActiveP1QuantileStatisticParameter}" Style="{StaticResource MaterialDesignSwitchToggleButton}"/>
-                                <TextBlock Margin="5" Grid.Row="9" Grid.Column="0" Text="0.2% percentile" VerticalAlignment="Center"/>
-                                <ToggleButton Margin="5" Grid.Row="9" Grid.Column="1" IsChecked="{Binding UseP0Dot2QuantileStatisticParameter}" Style="{StaticResource MaterialDesignSwitchToggleButton}"/>
+                                <!--<TextBlock Margin="5" Grid.Row="9" Grid.Column="0" Text="0.2% percentile" VerticalAlignment="Center"/>
+                                <ToggleButton Margin="5" Grid.Row="9" Grid.Column="1" IsChecked="{Binding UseP0Dot2QuantileStatisticParameter}" Style="{StaticResource MaterialDesignSwitchToggleButton}"/>-->
+                                <TextBlock Margin="5" Grid.Row="9" Grid.Column="0" Text="Integral" VerticalAlignment="Center"/>
+                                <ToggleButton Margin="5" Grid.Row="9" Grid.Column="1" IsChecked="{Binding UseIntegralStatisticParameter}" Style="{StaticResource MaterialDesignSwitchToggleButton}"/>
                                 <TextBlock Margin="5" Grid.Row="0" Grid.Column="3" Text="0.1% percentile" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="0" Grid.Column="5" IsChecked="{Binding UseP0Dot1QuantileStatisticParameter}" Style="{StaticResource MaterialDesignSwitchToggleButton}"/>
                                 <TextBlock Margin="5" Grid.Row="1" Grid.Column="3" Text="1% low average" VerticalAlignment="Center"/>
@@ -764,6 +768,8 @@
                                            &#xA;The single highest value &#xA;
                                            &#xA;Average:
                                            &#xA;The average of all values &#xA;
+                                           &#xA;Integral:
+                                           &#xA;The integral average of all values &#xA;
                                            &#xA;Median:
                                            &#xA;The middle of all values sorted from low to high &#xA;
                                            &#xA;Minimum:
@@ -826,8 +832,10 @@
                                 <ToggleButton Margin="5" Grid.Row="5" Grid.Column="1" IsChecked="{Binding UseGpuActiveP1LowAverageStatisticParameter}" Style="{StaticResource MaterialDesignSwitchToggleButton}"/>
                                 <TextBlock Margin="5" Grid.Row="6" Grid.Column="0" Text="99.9% percentile" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="6" Grid.Column="1" IsChecked="{Binding UseP0Dot1QuantileStatisticParameter}" Style="{StaticResource MaterialDesignSwitchToggleButton}"/>
-                                <TextBlock Margin="5" Grid.Row="7" Grid.Column="0" Text="99.8% percentile" VerticalAlignment="Center"/>
-                                <ToggleButton Margin="5" Grid.Row="7" Grid.Column="1" IsChecked="{Binding UseP0Dot2QuantileStatisticParameter}" Style="{StaticResource MaterialDesignSwitchToggleButton}"/>
+                                <!--<TextBlock Margin="5" Grid.Row="7" Grid.Column="0" Text="99.8% percentile" VerticalAlignment="Center"/>
+                                <ToggleButton Margin="5" Grid.Row="7" Grid.Column="1" IsChecked="{Binding UseP0Dot2QuantileStatisticParameter}" Style="{StaticResource MaterialDesignSwitchToggleButton}"/>-->
+                                <TextBlock Margin="5" Grid.Row="7" Grid.Column="0" Text="Integral" VerticalAlignment="Center"/>
+                                <ToggleButton Margin="5" Grid.Row="7" Grid.Column="1" IsChecked="{Binding UseIntegralStatisticParameter}" Style="{StaticResource MaterialDesignSwitchToggleButton}"/>
                                 <TextBlock Margin="5" Grid.Row="8" Grid.Column="0" Text="99% percentile" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="8" Grid.Column="1" IsChecked="{Binding UseP1QuantileStatisticParameter}" Style="{StaticResource MaterialDesignSwitchToggleButton}"/>
                                 <TextBlock Margin="5" Grid.Row="9" Grid.Column="0" Text="GPU-Busy 99% percentile(only ms)" VerticalAlignment="Center"/>

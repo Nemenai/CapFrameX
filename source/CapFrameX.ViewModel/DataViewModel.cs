@@ -804,6 +804,7 @@ namespace CapFrameX.ViewModel
             var p95_quantile = double.NaN;
             var median = double.NaN;
             var average = double.NaN;
+            var integral = double.NaN;
             var gpuActiveAverage = double.NaN;
             var p0dot1_quantile = double.NaN;
             var p0dot2_quantile = double.NaN;
@@ -827,6 +828,7 @@ namespace CapFrameX.ViewModel
                 p95_quantile = GetFrametimeMetricValue(frametimes, EMetric.P95);
                 median = GetFrametimeMetricValue(frametimes, EMetric.Median);
                 average = GetFrametimeMetricValue(frametimes, EMetric.Average);
+                integral = GetFrametimeMetricValue (frametimes, EMetric.Integral);
                 gpuActiveAverage = GetFrametimeMetricValue(gpuActiveTimes, EMetric.GpuActiveAverage);
                 p0dot1_quantile = GetFrametimeMetricValue(frametimes, EMetric.P0dot1);
                 p0dot2_quantile = GetFrametimeMetricValue(frametimes, EMetric.P0dot2);
@@ -848,6 +850,7 @@ namespace CapFrameX.ViewModel
                 p95_quantile = GetMetricValue(frametimes, EMetric.P95);
                 median = GetMetricValue(frametimes, EMetric.Median);
                 average = GetMetricValue(frametimes, EMetric.Average);
+                integral = GetMetricValue(frametimes, EMetric.Integral);
                 //gpuActiveAverage = GetMetricValue(gpuActiveTimes, EMetric.GpuActiveAverage);
                 p0dot1_quantile = GetMetricValue(frametimes, EMetric.P0dot1);
                 p0dot2_quantile = GetMetricValue(frametimes, EMetric.P0dot2);
@@ -886,6 +889,8 @@ namespace CapFrameX.ViewModel
                     builder.Append("Median" + "\t" + median.ToString(CultureInfo.InvariantCulture) + Environment.NewLine);
                 if (_appConfiguration.UseSingleRecordAverageStatisticParameter)
                     builder.Append("Average" + "\t" + average.ToString(CultureInfo.InvariantCulture) + Environment.NewLine);
+                if (_appConfiguration.UseSingleRecordIntegralStatisticParameter)
+                    builder.Append("Integral" + "\t" + integral.ToString(CultureInfo.InvariantCulture) + Environment.NewLine);
                 if (_appConfiguration.UseSingleRecordGpuActiveAverageStatisticParameter && !double.IsNaN(gpuActiveAverage))
                     builder.Append("GPU-Busy Average" + "\t" + gpuActiveAverage.ToString(CultureInfo.InvariantCulture) + Environment.NewLine);
                 if (_appConfiguration.UseSingleRecordP5QuantileStatisticParameter)
@@ -925,6 +930,8 @@ namespace CapFrameX.ViewModel
                     builder.Append("Median" + "\t" + median.ToString(CultureInfo.InvariantCulture) + Environment.NewLine);
                 if (_appConfiguration.UseSingleRecordAverageStatisticParameter)
                     builder.Append("Average" + "\t" + average.ToString(CultureInfo.InvariantCulture) + Environment.NewLine);
+                if (_appConfiguration.UseSingleRecordIntegralStatisticParameter)
+                    builder.Append("Integral" + "\t" + integral.ToString(CultureInfo.InvariantCulture) + Environment.NewLine);
                 if (_appConfiguration.UseSingleRecordGpuActiveAverageStatisticParameter && !double.IsNaN(gpuActiveAverage))
                     builder.Append("GPU-Busy Average" + "\t" + gpuActiveAverage.ToString(CultureInfo.InvariantCulture) + Environment.NewLine);
                 if (_appConfiguration.UseSingleRecordP5QuantileStatisticParameter)
@@ -1316,6 +1323,7 @@ namespace CapFrameX.ViewModel
             var p95_quantile = double.NaN;
             var median = double.NaN;
             var average = double.NaN;
+            var integral = double.NaN;
             var gpuActiveAverage = double.NaN;
             var p0dot1_quantile = double.NaN;
             var p0dot2_quantile = double.NaN;
@@ -1339,6 +1347,7 @@ namespace CapFrameX.ViewModel
                 p95_quantile = GetFrametimeMetricValue(frametimes, EMetric.P95);
                 median = GetFrametimeMetricValue(frametimes, EMetric.Median);
                 average = GetFrametimeMetricValue(frametimes, EMetric.Average);
+                integral = GetFrametimeMetricValue(frametimes, EMetric.Integral);
                 gpuActiveAverage = !gpuActiveTimes.IsNullOrEmpty() ? GetFrametimeMetricValue(gpuActiveTimes, EMetric.GpuActiveAverage) : double.NaN;
                 p0dot1_quantile = GetFrametimeMetricValue(frametimes, EMetric.P0dot1);
                 p0dot2_quantile = GetFrametimeMetricValue(frametimes, EMetric.P0dot2);
@@ -1360,6 +1369,7 @@ namespace CapFrameX.ViewModel
                 p95_quantile = GetMetricValue(frametimes, EMetric.P95);
                 median = GetMetricValue(frametimes, EMetric.Median);
                 average = GetMetricValue(frametimes, EMetric.Average);
+                integral = GetMetricValue(frametimes, EMetric.Integral);
                 //gpuActiveAverage = !gpuActiveTimes.IsNullOrEmpty() ? GetMetricValue(gpuActiveTimes, EMetric.GpuActiveAverage) : double.NaN;
                 p0dot1_quantile = GetMetricValue(frametimes, EMetric.P0dot1);
                 p0dot2_quantile = GetMetricValue(frametimes, EMetric.P0dot2);
@@ -1419,6 +1429,8 @@ namespace CapFrameX.ViewModel
                         values.Add(p1_quantile);
                     if (_appConfiguration.UseSingleRecordP5QuantileStatisticParameter)
                         values.Add(p5_quantile);
+                    if (_appConfiguration.UseSingleRecordIntegralStatisticParameter)
+                        values.Add(integral);
                     if (_appConfiguration.UseSingleRecordMedianStatisticParameter)
                         values.Add(median);
                     if (_appConfiguration.UseSingleRecordGpuActiveAverageStatisticParameter && !double.IsNaN(gpuActiveAverage))
@@ -1466,6 +1478,8 @@ namespace CapFrameX.ViewModel
                         values.Add(p5_quantile);
                     if (_appConfiguration.UseSingleRecordGpuActiveAverageStatisticParameter && !double.IsNaN(gpuActiveAverage))
                         values.Add(gpuActiveAverage);
+                    if (_appConfiguration.UseSingleRecordIntegralStatisticParameter)
+                        values.Add(integral);
                     if (_appConfiguration.UseSingleRecordAverageStatisticParameter)
                         values.Add(average);
                     if (_appConfiguration.UseSingleRecordMedianStatisticParameter)
@@ -1498,7 +1512,7 @@ namespace CapFrameX.ViewModel
 
                 var parameterLabelList = new List<string>();
 
-                //{ "Adaptive STDEV", "Min", "0.1% Low Integral", "0.1% Low Average", "0.1%", "0.2%", "1% Low Integral", "1% Low Average", "1%", "5%", "Average", "95%", "99%", "Max" }
+                //{ "Adaptive STDEV", "Min", "0.1% Low Integral", "0.1% Low Average", "0.1%", "0.2%", "1% Low Integral", "1% Low Average", "1%", "5%", "Average", "Integral", "95%", "99%", "Max" }
                 if (UseFrametimeStatisticParameters)
                 {
                     if (_appConfiguration.UseSingleRecordGpuFpsPerWattParameter && !double.IsNaN(gpuFpsPerWatt))
@@ -1529,6 +1543,8 @@ namespace CapFrameX.ViewModel
                         parameterLabelList.Add("GPU-Busy P99");
                     if (_appConfiguration.UseSingleRecordP5QuantileStatisticParameter)
                         parameterLabelList.Add("P95");
+                    if (_appConfiguration.UseSingleRecordIntegralStatisticParameter)
+                        parameterLabelList.Add("Integral");
                     if (_appConfiguration.UseSingleRecordMedianStatisticParameter)
                         parameterLabelList.Add("Median");
                     if (_appConfiguration.UseSingleRecordGpuActiveAverageStatisticParameter && !double.IsNaN(gpuActiveAverage))
@@ -1574,6 +1590,8 @@ namespace CapFrameX.ViewModel
                         parameterLabelList.Add("P5");
                     if (_appConfiguration.UseSingleRecordGpuActiveAverageStatisticParameter && !double.IsNaN(gpuActiveAverage))
                         parameterLabelList.Add("GPU-Busy Average");
+                    if (_appConfiguration.UseSingleRecordIntegralStatisticParameter)
+                        parameterLabelList.Add("Integral");
                     if (_appConfiguration.UseSingleRecordAverageStatisticParameter)
                         parameterLabelList.Add("Average");
                     if (_appConfiguration.UseSingleRecordMedianStatisticParameter)

@@ -38,6 +38,8 @@ namespace CapFrameX.Contracts.Configuration
 
 		bool UseSingleRecordAverageStatisticParameter { get; set; }
 
+        bool UseSingleRecordIntegralStatisticParameter { get; set; }
+
         bool UseSingleRecordGpuActiveAverageStatisticParameter { get; set; }
 
         bool UseSingleRecordMedianStatisticParameter { get; set; }

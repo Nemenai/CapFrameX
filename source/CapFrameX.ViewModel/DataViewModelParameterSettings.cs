@@ -7,7 +7,8 @@
 		private bool _useP95QuantileStatisticParameter;
 		private bool _useMedianStatisticParameter;
 		private bool _useAverageStatisticParameter;
-		private bool _useGpuActiveAverageStatisticParameter;
+        private bool _useIntegralStatisticParameter;
+        private bool _useGpuActiveAverageStatisticParameter;
         private bool _useP5QuantileStatisticParameter;
 		private bool _useP1QuantileStatisticParameter;
 		private bool _useGpuActiveP1QuantileStatisticParameter;
@@ -32,7 +33,8 @@
 			UseP95QuantileStatisticParameter = _appConfiguration.UseSingleRecordP95QuantileStatisticParameter;
 			UseMedianStatisticParameter = _appConfiguration.UseSingleRecordMedianStatisticParameter;
 			UseAverageStatisticParameter = _appConfiguration.UseSingleRecordAverageStatisticParameter;
-			UseGpuActiveAverageStatisticParameter = _appConfiguration.UseSingleRecordGpuActiveAverageStatisticParameter;
+            UseIntegralStatisticParameter = _appConfiguration.UseSingleRecordIntegralStatisticParameter;
+            UseGpuActiveAverageStatisticParameter = _appConfiguration.UseSingleRecordGpuActiveAverageStatisticParameter;
             UseP5QuantileStatisticParameter = _appConfiguration.UseSingleRecordP5QuantileStatisticParameter;
 			UseP1QuantileStatisticParameter = _appConfiguration.UseSingleRecordP1QuantileStatisticParameter;
             UseGpuActiveP1QuantileStatisticParameter = _appConfiguration.UseSingleRecordGpuActiveP1QuantileStatisticParameter;
@@ -109,6 +111,18 @@
 				RaisePropertyChanged();
 			}
 		}
+
+        public bool UseIntegralStatisticParameter
+        {
+            get { return _useIntegralStatisticParameter; }
+            set
+            {
+                _useIntegralStatisticParameter = value;
+                _appConfiguration.UseSingleRecordIntegralStatisticParameter = value;
+                OnAcceptParameterSettings();
+                RaisePropertyChanged();
+            }
+        }
 
         public bool UseGpuActiveAverageStatisticParameter
         {

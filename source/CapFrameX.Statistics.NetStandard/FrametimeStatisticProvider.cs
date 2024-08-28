@@ -150,22 +150,15 @@ namespace CapFrameX.Statistics.NetStandard
             if (!sequence.Any())
                 return double.NaN;
 
-            var sequenceSorted = sequence.OrderByDescending(x => x).ToArray();
-            var totelTime = sequence.Sum();
-            var percentLowTime = totelTime * (1 - pQuantile);
-            var lowTimeSum = 0d;
-            var percentLowIndex = 0;
+            if (!sequence.Any())
+                return double.NaN;
 
-            for (int i = 0; i < sequenceSorted.Length; i++)
-            {
-                lowTimeSum += sequenceSorted[i];
-                percentLowIndex = i;
+            var quantile = GetPQuantileSequence(sequence, pQuantile);
+            var subSequenceLow = sequence.Where(element => element >= quantile);
 
-                if (lowTimeSum >= percentLowTime)
-                    break;
-            }
+            var subSequenceLowSquared = subSequenceLow.Select(x => x * x);
 
-            return sequenceSorted[percentLowIndex];
+            return subSequenceLowSquared.Sum() / subSequenceLow.Sum();
         }
 
         /// <summary>
